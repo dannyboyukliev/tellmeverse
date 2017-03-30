@@ -36,10 +36,14 @@ def get_verse():
     # r = make_response(res)
     # #r.headers['Content-Type'] = 'application/json'
     # return r
-    fb={"text":"danny"}
+    message = {
+        "messages": [
+            {"text": "danny"}
+        ]
+    }
     element=[]
-    element.append(fb)
-    res = json.dumps(element, indent=4)
+    element.append(message)
+    res = json.dumps(element, indent=0)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
