@@ -10,6 +10,7 @@ from flask import Flask, request, render_template, jsonify
 import random
 import urllib
 import datetime
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -24,33 +25,14 @@ def get_verse():
   s = requests.Session()
   result = s.get(api_url + query)
   result = result.json()
-  # result = result.get('result')
-  # fulfil = result.get('fulfillment')
-  # data= fulfil.get('data')
-  # if data is None:
-  #     speech= fulfil.get('speech')
-  #     fb={"text": speech}
-  # else:    
-  #     fb = data.get('facebook')
-  # element=[]
-  # element.append(fb)
-  # res = json.dumps(element, indent=4)
-  # r = make_response(res)
-  # #r.headers['Content-Type'] = 'application/json'
-  # return r
+  result = result.get('text')
   message = {
-      "messages": [
-          {"text": "danny"}
-      ]
+    "messages": [
+      {"text": result},
+      {"text": query}
+    ]
   }
-  element=[]
-  element.append(message)
-  res = json.dumps(element, indent=0)
-  r = make_response(res)
-  # r.headers['Content-Type'] = 'application/json'
-  return jsonify(r)
-  # return result
+  return jsonify(message)
 
 if __name__ == '__main__':
-  port = int(os.getenv('PORT', 5000))
-  app.run(debug=False, port=port, host='0.0.0.0')
+  app.run()
