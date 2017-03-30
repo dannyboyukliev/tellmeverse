@@ -12,15 +12,15 @@ import urllib
 from firebase import Firebase
 import datetime
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__)
 
-@app.route('/connect')
-def cf_connect():
+@app.route('/verse')
+def get_verse():
     query = request.args.get('query')
-    api_url = 'https://bible-api.com/'
-    head = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
-    s = requests.Session()
-    result = s.get(api_url + query, headers=head)
+    # api_url = 'https://bible-api.com/'
+    # head = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
+    # s = requests.Session()
+    # result = s.get(api_url + query, headers=head)
     # result = result.json()
     # result = result.get('result')
     # fulfil = result.get('fulfillment')
@@ -36,7 +36,7 @@ def cf_connect():
     # r = make_response(res)
     # #r.headers['Content-Type'] = 'application/json'
     # return r
-    return "asd"
+    return query
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
