@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from flask import Flask, request, render_template, jsonify
 import random
 import urllib
-from firebase import Firebase
 import datetime
 
 app = Flask(__name__)
@@ -40,17 +39,18 @@ def get_verse():
   # r = make_response(res)
   # #r.headers['Content-Type'] = 'application/json'
   # return r
-  message = {
-      "messages": [
-          {"text": "danny"}
-      ]
-  }
-  element=[]
-  element.append(message)
-  res = json.dumps(element, indent=0)
-  r = make_response(res)
-  r.headers['Content-Type'] = 'application/json'
-  return jsonify(r)
+  # message = {
+  #     "messages": [
+  #         {"text": "danny"}
+  #     ]
+  # }
+  # element=[]
+  # element.append(message)
+  # res = json.dumps(element, indent=0)
+  # r = make_response(res)
+  # r.headers['Content-Type'] = 'application/json'
+  # return jsonify(r)
+  return "verse"
 
 if __name__ == '__main__':
   port = int(os.getenv('PORT', 5000))
