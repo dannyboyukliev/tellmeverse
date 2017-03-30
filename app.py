@@ -14,7 +14,7 @@ import datetime
 
 app = Flask(__name__)
 
-@app.rount('/')
+@app.route('/')
 def hello():
   return "Hello"
 
