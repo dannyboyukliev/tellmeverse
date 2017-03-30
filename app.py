@@ -14,40 +14,44 @@ import datetime
 
 app = Flask(__name__)
 
+@app.rount('/')
+def hello():
+  return "Hello"
+
 @app.route('/verse')
-def get_verse():
-    query = request.args.get('query')
-    # api_url = 'https://bible-api.com/'
-    # head = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
-    # s = requests.Session()
-    # result = s.get(api_url + query, headers=head)
-    # result = result.json()
-    # result = result.get('result')
-    # fulfil = result.get('fulfillment')
-    # data= fulfil.get('data')
-    # if data is None:
-    #     speech= fulfil.get('speech')
-    #     fb={"text": speech}
-    # else:    
-    #     fb = data.get('facebook')
-    # element=[]
-    # element.append(fb)
-    # res = json.dumps(element, indent=4)
-    # r = make_response(res)
-    # #r.headers['Content-Type'] = 'application/json'
-    # return r
-    message = {
-        "messages": [
-            {"text": "danny"}
-        ]
-    }
-    element=[]
-    element.append(message)
-    res = json.dumps(element, indent=0)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return jsonify(r)
+def get_verse():  
+  query = request.args.get('query')
+  # api_url = 'https://bible-api.com/'
+  # head = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
+  # s = requests.Session()
+  # result = s.get(api_url + query, headers=head)
+  # result = result.json()
+  # result = result.get('result')
+  # fulfil = result.get('fulfillment')
+  # data= fulfil.get('data')
+  # if data is None:
+  #     speech= fulfil.get('speech')
+  #     fb={"text": speech}
+  # else:    
+  #     fb = data.get('facebook')
+  # element=[]
+  # element.append(fb)
+  # res = json.dumps(element, indent=4)
+  # r = make_response(res)
+  # #r.headers['Content-Type'] = 'application/json'
+  # return r
+  message = {
+      "messages": [
+          {"text": "danny"}
+      ]
+  }
+  element=[]
+  element.append(message)
+  res = json.dumps(element, indent=0)
+  r = make_response(res)
+  r.headers['Content-Type'] = 'application/json'
+  return jsonify(r)
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-    app.run(debug=False, port=port, host='0.0.0.0')
+  port = int(os.getenv('PORT', 5000))
+  app.run(debug=False, port=port, host='0.0.0.0')
