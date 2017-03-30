@@ -20,11 +20,10 @@ def hello():
 @app.route('/verse')
 def get_verse():  
   query = request.args.get('query')
-  # api_url = 'https://bible-api.com/'
-  # head = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
-  # s = requests.Session()
-  # result = s.get(api_url + query, headers=head)
-  # result = result.json()
+  api_url = 'https://bible-api.com/'
+  s = requests.Session()
+  result = s.get(api_url + query, headers=head)
+  result = result.json()
   # result = result.get('result')
   # fulfil = result.get('fulfillment')
   # data= fulfil.get('data')
