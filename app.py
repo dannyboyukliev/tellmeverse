@@ -36,7 +36,13 @@ def get_verse():
     # r = make_response(res)
     # #r.headers['Content-Type'] = 'application/json'
     # return r
-    return query
+    fb={"text":"danny"}
+    element=[]
+    element.append(fb)
+    res = json.dumps(element, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
