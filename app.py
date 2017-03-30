@@ -23,7 +23,7 @@ def get_verse():
   api_url = 'https://bible-api.com/'
   s = requests.Session()
   result = s.get(api_url + query)
-  result = result.json()
+  # result = result.json()
   # result = result.get('result')
   # fulfil = result.get('fulfillment')
   # data= fulfil.get('data')
