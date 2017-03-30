@@ -46,7 +46,7 @@ def get_verse():
     res = json.dumps(element, indent=0)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    return r
+    return jsonify(r)
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
