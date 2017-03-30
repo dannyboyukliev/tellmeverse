@@ -23,7 +23,7 @@ def get_verse():
   api_url = 'https://bible-api.com/'
   s = requests.Session()
   result = s.get(api_url + query)
-  # result = result.json()
+  result = result.json()
   # result = result.get('result')
   # fulfil = result.get('fulfillment')
   # data= fulfil.get('data')
@@ -38,18 +38,18 @@ def get_verse():
   # r = make_response(res)
   # #r.headers['Content-Type'] = 'application/json'
   # return r
-  # message = {
-  #     "messages": [
-  #         {"text": "danny"}
-  #     ]
-  # }
-  # element=[]
-  # element.append(message)
-  # res = json.dumps(element, indent=0)
-  # r = make_response(res)
+  message = {
+      "messages": [
+          {"text": "danny"}
+      ]
+  }
+  element=[]
+  element.append(message)
+  res = json.dumps(element, indent=0)
+  r = make_response(res)
   # r.headers['Content-Type'] = 'application/json'
-  # return jsonify(r)
-  return result
+  return jsonify(r)
+  # return result
 
 if __name__ == '__main__':
   port = int(os.getenv('PORT', 5000))
