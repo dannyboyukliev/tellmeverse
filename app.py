@@ -20,7 +20,7 @@ def hello():
 
 @app.route('/verse')
 def get_verse():  
-  query = request.args.get('query')
+  # query = request.args.get('query')
   # api_url = 'https://bible-api.com/'
   # head = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
   # s = requests.Session()
